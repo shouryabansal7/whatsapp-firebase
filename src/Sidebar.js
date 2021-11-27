@@ -7,6 +7,7 @@ import {
   SearchOutlined,
 } from "@mui/icons-material";
 import { Avatar, IconButton } from "@mui/material";
+import SidebarChat from "./SidebarChat";
 
 function Sidebar(props) {
   return (
@@ -31,7 +32,11 @@ function Sidebar(props) {
           <input placeholder="Search or Start new Chat" type="text" />
         </div>
       </div>
-      <div className="sidebar_chats"></div>
+      <div className="sidebar_chats">
+        <SidebarChat addNewChat />
+        <SidebarChat />
+        <SidebarChat />
+      </div>
     </div>
   );
 }
