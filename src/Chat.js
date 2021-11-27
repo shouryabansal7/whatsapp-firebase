@@ -15,6 +15,8 @@ function Chat(props) {
   const sendMessage = (e) => {
     e.preventDefault();
     console.log("You typped>>>>", input);
+
+    setInput("");
   };
   return (
     <div className="chat">

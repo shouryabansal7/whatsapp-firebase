@@ -1,5 +1,7 @@
+import { addDoc, collection } from "@firebase/firestore";
 import { Avatar } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import db from "./firebase";
 import "./SidebarChat.css";
 
 function SidebarChat(props) {
@@ -13,16 +15,18 @@ function SidebarChat(props) {
     const roomName = prompt("Please Enter name for chat");
 
     if (roomName) {
-      //do something ever
+      addDoc(collection(db, "rooms"), {
+        name: roomName,
+      });
     }
   };
 
-  const { addNewChat } = props;
+  const { addNewChat, id, name } = props;
   return !addNewChat ? (
     <div className="sidebarChat">
       <Avatar src={`https://avatars.dicebear.com/api/avataaars/${seed}.svg`} />
       <div className="sidebarChat_info">
-        <h2>Room Name</h2>
+        <h2>{name}</h2>
         <p>This is the last message</p>
       </div>
     </div>
