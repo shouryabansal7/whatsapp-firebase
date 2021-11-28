@@ -1,6 +1,7 @@
 import { addDoc, collection } from "@firebase/firestore";
 import { Avatar } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import db from "./firebase";
 import "./SidebarChat.css";
 
@@ -23,13 +24,17 @@ function SidebarChat(props) {
 
   const { addNewChat, id, name } = props;
   return !addNewChat ? (
-    <div className="sidebarChat">
-      <Avatar src={`https://avatars.dicebear.com/api/avataaars/${seed}.svg`} />
-      <div className="sidebarChat_info">
-        <h2>{name}</h2>
-        <p>This is the last message</p>
+    <Link to={`/rooms/${id}`}>
+      <div className="sidebarChat">
+        <Avatar
+          src={`https://avatars.dicebear.com/api/avataaars/${seed}.svg`}
+        />
+        <div className="sidebarChat_info">
+          <h2>{name}</h2>
+          <p>This is the last message</p>
+        </div>
       </div>
-    </div>
+    </Link>
   ) : (
     <div onClick={createChat} className="sidebarChat">
       <h2>Add New Chat</h2>
