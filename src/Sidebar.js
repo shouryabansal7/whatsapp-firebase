@@ -10,9 +10,11 @@ import { Avatar, IconButton } from "@mui/material";
 import SidebarChat from "./SidebarChat";
 import db from "./firebase";
 import { collection, onSnapshot } from "@firebase/firestore";
+import { useStateValue } from "./StateProvider";
 
 function Sidebar(props) {
   const [rooms, setRooms] = useState([]);
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
     // getDocs(collection(db, "rooms"))
@@ -45,7 +47,7 @@ function Sidebar(props) {
   return (
     <div className="sidebar">
       <div className="sidebar_header">
-        <Avatar />
+        <Avatar src={user?.photoURL} />
         <div className="sidebar_headerRight">
           <IconButton>
             <DonutLarge />
