@@ -54,7 +54,7 @@ function SidebarChat(props) {
       //   );
       // });
     }
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     setSeed(Math.floor(Math.random() * 5000));

@@ -31,7 +31,7 @@ function App() {
                   </React.Fragment>
                 }
               ></Route>
-              <Route path="/" element={<h1>Login</h1>} />
+              {/* <Route path="/" element={<h1>Login</h1>} /> */}
             </Routes>
           </BrowserRouter>
         </div>
